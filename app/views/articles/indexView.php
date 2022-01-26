@@ -3,7 +3,20 @@
 ?>
 <div class="title-page">
     <h1 class="title">Articles</h1>
-    <a href="index.php?page=article_new" ?><i class="fas fa-plus-circle add-button"></i></a>
+    <div class="index-button-container">
+        <div class="add-button-container">
+            <a href="index.php?page=article_new" ?><i class="fas fa-plus-circle add-button"></i></a>
+            <span>article</span>
+        </div>
+        <div class="add-button-container">
+            <a href="index.php?page=user_new" ?><i class="fas fa-plus-circle add-button"></i></a>
+            <span>user</span>
+        </div>
+        <div class="add-button-container">
+            <a href="index.php?page=category_new" ?><i class="fas fa-plus-circle add-button"></i></a>
+            <span>catégorie</span>
+        </div>    
+    </div>
 </div>
 
 

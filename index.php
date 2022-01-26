@@ -22,4 +22,10 @@ switch($page) {
     case 'article_delete' :
         include_once("app/controllers/articles/articleDeleteController.php");
         break;
+    case 'user_new' :
+        include_once("app/controllers/users/userNewController.php");
+        break;
+    case 'category_new' :
+        include_once("app/controllers/category/categoryNewController.php");
+        break;
 }
