@@ -36,18 +36,19 @@ function postById($id) {
         }
 }
 
-function newPost($title, $content, $autor) {
+function newPost($title, $content, $autor, $cat) {
     global $pdo;
     try {
         $data =[ 
             'title'=> $title,
             'content'=> $content,
-            'autor'=> $autor
+            'autor'=> $autor,
+            'cat'=> $cat
         ];
         $query = "INSERT INTO posts
-                    (post_title, post_content, post_autor)
+                    (post_title, post_content, post_autor, post_cat)
                     VALUES
-                    (:title, :content, :autor)";
+                    (:title, :content, :autor, :cat)";
         $req = $pdo->prepare($query);
         $req->execute($data);
         return true;
