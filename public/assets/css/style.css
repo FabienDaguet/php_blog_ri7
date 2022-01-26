@@ -61,6 +61,13 @@ a {
     padding: 0.2rem;
 }
 
+.add-button {
+    margin-left: 1rem;
+    padding: 0.2rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
 /*------FORM------*/
 
 .form-container {
@@ -69,14 +76,33 @@ a {
     align-items: center;
 }
 
+.form-container-box {
+    display: flex;
+    align-items: flex-end;
+}
+
+.form-container-article {
+    margin-right: 5rem;
+}
+
 .area-layout {
     display: flex;
     flex-direction: column;
 }
 
+.area-add {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .form-content {
     display: flex;
     margin: 1rem 0;
+}
+
+.form-content-add {
+    width: calc(50% - 1rem);
 }
 
 .label {

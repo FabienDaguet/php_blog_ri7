@@ -5,24 +5,20 @@ include_once("app/models/usersModel.php");
 
     $users= allUsers();
 
-    if (!empty($_POST)) {
+    //var_dump($_POST);
 
-        var_dump($_POST);
-        if (empty($_POST["newAutor"])) {
+    if (!empty($_POST) && empty($_POST["newAutor"])) {
 
-            $create = newPost($_POST["titre"], $_POST["contenu"], $_POST["autor"]);
+        $create = newPost($_POST["title"], $_POST["content"], $_POST["autor"]);
 
-        } else {
+        //var_dump($createAutor);
+        header("Location: index.php?page=article_index");
+    } elseif (!empty($_POST["newAutor"])) {
 
-            $createAutor = newAutor($_POST["autor"]);
-            $create = newPost($_POST["titre"], $_POST["contenu"], $_POST["autor"]);
-
-        }
+        $createAutor = newAutor($_POST["newAutor"]);
+        //var_dump($createAutor);
+        header("Location: index.php?page=article_new");
         
-        
-        //var_dump($create);
-
-        //header("Location: index.php?page=article_index");
     }
 
 include("app/views/articles/newView.php");
