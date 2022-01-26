@@ -10,7 +10,7 @@
             <div class="article-date">Date : <?= $post["post_date"] ?> - </div>
             <div class="article-auteur">Auteur : <?= $post["user_name"] ?></div>
         </div>
-        <div class="articleView-actions">
+        <div class="view-actions">
             <div class="article-back">
                 <button class="back-button button"><a href="index.php?page=article_index">Retour</a></button>
             </div>

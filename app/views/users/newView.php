@@ -13,9 +13,10 @@
                             <label class="label" for="newAutor">Nom</label>
                             <input type="text" name="newAutor">
                         </div>
-                        <div class="form-button-container">
-                            <input type="submit" value="Valider" class="button form-button validate-button send-button"> 
-                        </div>
+                    </div>
+                    <div class="form-button-container">
+                        <button class="back-button button form-button"><a href="index.php?page=article_index">Retour</a></button>
+                        <input type="submit" value="Valider" class="button form-button validate-button send-button"> 
                     </div>
                 </form>
             </div>
