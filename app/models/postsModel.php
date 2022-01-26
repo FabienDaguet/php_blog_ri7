@@ -20,14 +20,15 @@ function allPosts() {
 function postById($id) {
     global $pdo;
     try {
-        $query = "SELECT post_title, post_content, post_date, post_autor, post_ID, user_name
-                        FROM posts, users
+        $query = "SELECT post_ID, post_title, post_content, post_date, post_autor, post_cat, user_ID, user_name, cat_ID, cat_name
+                        FROM posts, users, category
                         WHERE post_autor = users.user_ID
-                        AND post_ID = :id";
+                        AND post_ID = :id
+                        AND post_cat = category.cat_ID";
         $req = $pdo->prepare($query);
         $req->execute([":id"=> $id]);
         $req->setFetchMode(PDO::FETCH_ASSOC);
-        $posts = $req->fetchAll();
+        $posts = $req->fetch();
         $req->closeCursor();
         return $posts; 
     } catch (Exception $e) {
@@ -55,18 +56,20 @@ function newPost($title, $content, $autor) {
     }
 }
 
-function updatePost($title, $content, $id) {
+function updatePost($title, $content, $id, $autor, $cat) {
     global $pdo;
     try {
         $data =[ 
             'title'=> $title,
             'content'=> $content,
-            "id"=> $id,
+            'id'=> $id,
+            'autor'=> $autor,
+            'cat'=> $cat
         ];
         //var_dump($data);
         $query = "UPDATE posts 
                     SET
-                    post_title= :title, post_content= :content
+                    post_title= :title, post_content= :content, post_autor= :autor, post_cat= :cat
                     WHERE post_ID = :id" ;
         $req = $pdo->prepare($query);
         $req->execute($data);
